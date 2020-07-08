@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+  storage:
+    image: pgrouting/pgrouting:12-3.0-2.6.3
+    container_name: "trailcatalog-postgres"
+    restart: always
+    environment:
+      - POSTGRES_DB=trailcatalog
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./database/schema/tables.sql:/docker-entrypoint-initdb.d/tables.sql
+    ports:
+      - 5435:5432
