@@ -1,0 +1,12 @@
+{
+  "name": "trail-catalog.data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "download-data": "wget -O ndca.osm 'https://api.openstreetmap.org/api/0.6/map?bbox=18.15,48.92,18.20,48.95'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
