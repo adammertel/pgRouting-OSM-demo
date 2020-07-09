@@ -30,11 +30,11 @@ var fs = require("fs");
   )`);
   console.log("tables recreated");
 
-  const data = fs.readFileSync("./data/ndca.osm");
+  const data = fs.readFileSync("./../data/ndca.osm");
   const json = JSON.parse(parser.toJson(data));
 
   const hikingRelations = json.osm.relation.filter((route) =>
-    route.tag.find((tag) => tag.k === "route" && tag.v === "hiking")
+    route.tag.find((tag) => tag.k === "type" && tag.v === "route")
   );
 
   const edges = [];

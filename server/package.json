@@ -15,17 +15,19 @@
     "ignore": [
       "src/public"
     ],
-    "exec": "ts-node -r tsconfig-paths/register ./src"
+    "exec": "ts-node -r ./src"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.7",
+    "@types/morgan": "^1.9.1",
     "@types/node": "^14.0.20",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "tslint": "^6.1.2",
     "typescript": "^3.9.6"
