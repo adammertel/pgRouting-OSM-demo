@@ -41,43 +41,45 @@ var fs = require("fs");
 
   hikingRelations.map((hikingRoute) => {
     hikingRoute.member
-      .filter((member) => member.type === "way")
-      .map((memberWay) => {
-        const way = json.osm.way.find((w) => w.id === memberWay.ref);
-        if (way) {
-          const nodes = way.nd.map((wayNode) => {
-            const node = json.osm.node.find((n) => n.id === wayNode.ref);
-            return {
-              id: node.id,
-              lat: parseFloat(node.lat),
-              lon: parseFloat(node.lon),
-            };
-          });
+      .filter((member) => member.type === "way" || member.type === "node")
+      .forEach((member) => {
+        if (member.type == "way") {
+          const way = json.osm.way.find((w) => w.id === member.ref);
 
-          const tracktype =
-            way.tag &&
-            way.tag.length &&
-            way.tag.find((t) => t.k === "tracktype");
-
-          const smoothness =
-            way.tag &&
-            way.tag.length &&
-            way.tag.find((t) => t.k === "smoothness");
-
-          for (var ni = 0; ni < nodes.length - 1; ni++) {
-            const thisNode = nodes[ni];
-            const nextNode = nodes[ni + 1];
-
-            edges.push({
-              from: thisNode,
-              to: nextNode,
-              smoothness: smoothness ? smoothness.v : false,
-              tracktype: tracktype ? tracktype.v : false,
+          if (way) {
+            const nodes = way.nd.map((wayNode) => {
+              const node = json.osm.node.find((n) => n.id === wayNode.ref);
+              return {
+                id: node.id,
+                lat: parseFloat(node.lat),
+                lon: parseFloat(node.lon),
+              };
             });
-          }
 
-          //console.log(edge);
-          //console.log(nodes);
+            const tracktype =
+              way.tag &&
+              way.tag.length &&
+              way.tag.find((t) => t.k === "tracktype");
+
+            const smoothness =
+              way.tag &&
+              way.tag.length &&
+              way.tag.find((t) => t.k === "smoothness");
+
+            for (var ni = 0; ni < nodes.length - 1; ni++) {
+              const thisNode = nodes[ni];
+              const nextNode = nodes[ni + 1];
+
+              edges.push({
+                from: thisNode,
+                to: nextNode,
+                smoothness: smoothness ? smoothness.v : false,
+                tracktype: tracktype ? tracktype.v : false,
+              });
+            }
+          }
+        } else {
+          console.log(member);
         }
       });
   });
@@ -103,6 +105,8 @@ var fs = require("fs");
       )`
     );
   }
-  await client.query(`SELECT pgr_createTopology('edges',0.001, 'geom', 'id');`);
+  await client.query(
+    `SELECT pgr_createTopology('edges',0.0001, 'geom', 'id');`
+  );
   await client.end();
 })();
