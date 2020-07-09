@@ -14,7 +14,7 @@ CREATE EXTENSION "pgrouting"
 
 Example - get the closest connection between two nodes
 
-- `SELECT FROM pgr_dijkstra('SELECT id,source,target,dist as cost FROM edges', 210, 216, directed:=false);`
+- `SELECT * FROM pgr_dijkstra('SELECT id,source,target,dist as cost FROM edges', 210, 216, directed:=false);`
 
 ## data
 
