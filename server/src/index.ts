@@ -84,7 +84,8 @@ app.get("/path", async (req, res, next) => {
           directed:=false
         ) JOIN edges as e ON edge = e.id`);
 
-      res.end(JSON.stringify(closestPath));
+      //res.end(JSON.stringify(closestPath));
+      res.end(JSON.stringify(closestPath.rows));
     }
 
     res.end(
