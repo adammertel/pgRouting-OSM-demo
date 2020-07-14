@@ -17,6 +17,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
+    "@types/react-leaflet": "^2.5.2",
     "@types/webpack": "^4.41.21",
     "@types/webpack-dev-server": "^3.11.0",
     "axios": "^0.19.2",
@@ -25,6 +26,7 @@
     "css-loader": "^3.6.0",
     "dotenv-webpack": "^2.0.0",
     "favicons-webpack-plugin": "^3.0.1",
+    "leaflet": "^1.6.0",
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-custom-properties": "^9.1.1",
@@ -34,6 +36,7 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-leaflet": "^2.7.0",
     "react-query": "^2.4.16",
     "reactn": "^2.2.7",
     "style-loader": "^1.2.1",
@@ -44,5 +47,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.9"
+  },
+  "devDependencies": {
+    "file-loader": "^6.0.0"
   }
 }

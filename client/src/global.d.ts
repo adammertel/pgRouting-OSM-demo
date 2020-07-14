@@ -18,7 +18,7 @@ declare module "reactn/default" {
   }
 
   export interface State {
-    start: string;
-    end: string;
+    start: { lat; lng };
+    end: { lat; lng };
   }
 }

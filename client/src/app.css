@@ -1,4 +1,10 @@
 @import "tailwind.css";
 
 .wrapper {
+  .map-wrapper {
+    .leaflet-container {
+      @apply w-full;
+      height: 500px;
+    }
+  }
 }

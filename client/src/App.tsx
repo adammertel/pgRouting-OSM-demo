@@ -4,6 +4,8 @@ import "./app.css";
 import { useQuery } from "react-query";
 import axios from "axios";
 
+import { MapWrapper } from "./MapWrapper";
+
 interface AppProps {}
 
 export const App: React.FC<AppProps> = () => {
@@ -14,37 +16,24 @@ export const App: React.FC<AppProps> = () => {
     `path-${start}-${end}`,
     async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/path?start=${start}&end=${end}`
+        `http://localhost:3000/path?start=${start.lat + "," + start.lng}&end=${
+          end.lat + "," + end.lng
+        }`
       );
       return data;
     },
-    {}
+    { refetchInterval: 1000 }
   );
 
   return (
     <div className="wrapper">
-      <div className="status"> {status}</div>
-      <div className="text">{start}</div>
-      <div className="text">{end}</div>
-      <input
-        value={start}
-        onChange={(e: React.FormEvent<HTMLInputElement>) => {
-          const newValue = e.currentTarget.value;
-          if (typeof newValue === "string") {
-            setStart(newValue);
-          }
-        }}
-      />
-      <input
-        value={end}
-        onChange={(e: React.FormEvent<HTMLInputElement>) => {
-          const newValue = e.currentTarget.value;
-          if (typeof newValue === "string") {
-            setEnd(newValue);
-          }
-        }}
-      />
+      <div className="status">{status}</div>
+      <div className="text">{JSON.stringify(start)}</div>
+      <div className="text">{JSON.stringify(end)}</div>
+
       <div>{data?.length}</div>
+      <MapWrapper path={data} />
+      <div className="text">{JSON.stringify(data)}</div>
     </div>
   );
 };
