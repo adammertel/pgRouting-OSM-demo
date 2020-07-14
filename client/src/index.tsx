@@ -1,5 +1,9 @@
-import * as React from "react";
+import React, { setGlobal } from "reactn";
 import * as ReactDOM from "react-dom";
+
+// Set an initial global state directly
+
+setGlobal({ title: "" });
 
 import { App } from "App";
 

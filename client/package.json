@@ -34,6 +34,7 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "reactn": "^2.2.7",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.6",
     "ts-loader": "^8.0.0",
