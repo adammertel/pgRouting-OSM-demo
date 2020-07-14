@@ -18,6 +18,7 @@ declare module "reactn/default" {
   }
 
   export interface State {
-    title: string;
+    start: string;
+    end: string;
   }
 }

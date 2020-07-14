@@ -1,4 +1,5 @@
 import express from "express";
+var cors = require("cors");
 
 const result = require("dotenv").config({ path: "./env/development.env" });
 //console.log(result);
@@ -14,6 +15,7 @@ const client = new Client({
 });
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
