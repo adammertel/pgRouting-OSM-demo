@@ -1,7 +1,7 @@
-version: "3.1"
+version: "3"
 
 services:
-  storage:
+  postgis:
     image: pgrouting/pgrouting:12-3.0-2.6.3
     container_name: "pgrouting-demo"
     restart: always
@@ -11,5 +11,9 @@ services:
       - POSTGRES_PASSWORD=postgres
     volumes:
       - ./database/schema/tables.sql:/docker-entrypoint-initdb.d/tables.sql
+      - db-data:/var/lib/postgresql/data
     ports:
       - 5435:5432
+
+volumes:
+  db-data:
