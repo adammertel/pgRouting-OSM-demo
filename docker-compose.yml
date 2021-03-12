@@ -1,12 +1,12 @@
-version: "3"
+version: "3.1"
 
 services:
   storage:
-    image: pgrouting/pgrouting:13-3.1-3.1.3
-    container_name: "trailcatalog-postgres"
+    image: pgrouting/pgrouting:12-3.0-2.6.3
+    container_name: "pgrouting-demo"
     restart: always
     environment:
-      - POSTGRES_DB=trailcatalog
+      - POSTGRES_DB=trails
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
