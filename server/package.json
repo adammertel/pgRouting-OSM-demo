@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "tslint --project \"tsconfig.json\"",
-    "start:dev": "nodemon"
+    "dev": "nodemon"
   },
   "nodemonConfig": {
     "watch": [

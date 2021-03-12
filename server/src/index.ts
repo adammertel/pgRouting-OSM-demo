@@ -1,16 +1,13 @@
 import express from "express";
 var cors = require("cors");
 
-const result = require("dotenv").config({ path: "./env/development.env" });
-//console.log(result);
-
 // database
 const { Client } = require("pg");
 const client = new Client({
   user: "postgres",
   password: "postgres",
   host: "localhost",
-  database: "trailcatalog",
+  database: "trails",
   port: 5435,
 });
 
@@ -88,17 +85,17 @@ app.get("/path", async (req, res, next) => {
 
       //res.end(JSON.stringify(closestPath));
       res.end(JSON.stringify(closestPath.rows));
+    } else {
+      res.end(
+        JSON.stringify(start) +
+          "\n" +
+          JSON.stringify(end) +
+          "\n" +
+          JSON.stringify(closestNodeIdToStart) +
+          "\n" +
+          JSON.stringify(closestNodeIdToEnd)
+      );
     }
-
-    res.end(
-      JSON.stringify(start) +
-        "\n" +
-        JSON.stringify(end) +
-        "\n" +
-        JSON.stringify(closestNodeIdToStart) +
-        "\n" +
-        JSON.stringify(closestNodeIdToEnd)
-    );
   } else {
     res.end("invalid parameters");
   }
