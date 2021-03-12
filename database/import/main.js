@@ -3,7 +3,7 @@ const client = new Client({
   user: "postgres",
   password: "postgres",
   host: "localhost",
-  database: "trailcatalog",
+  database: "trails",
   port: 5435,
 });
 
