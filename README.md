@@ -1,7 +1,7 @@
 # pgRouting-OSM demo
 
-Demo repository to show capabilities of PGSQL database with PostGIS and PGrouting extensions to search shortest paths in OSM data.
-The repository consists of a simple demo application written in typescript and node.
+Minimal working example of PostgreSQL database with PostGIS and PGrouting extensions searching shortest paths in OSM data.
+The repository consists of a simple API node server and a web-based demo application written in typescript.
 
 ## Reproduce
 
