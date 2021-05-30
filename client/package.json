@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --config webpack.development.js",
+    "start": "webpack serve --config webpack.development.js",
     "build": "webpack --config webpack.production.js"
   },
   "author": "",
@@ -22,10 +22,9 @@
     "@types/webpack-dev-server": "^3.11.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.6.0",
-    "dotenv-webpack": "^2.0.0",
-    "favicons-webpack-plugin": "^3.0.1",
+    "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
     "leaflet": "^1.6.0",
     "mini-css-extract-plugin": "^0.9.0",
     "react": "^16.13.1",
@@ -35,9 +34,9 @@
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.0",
     "typescript": "^3.9.6",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.0.9"
+    "webpack-merge": "^5.7.3"
   }
 }

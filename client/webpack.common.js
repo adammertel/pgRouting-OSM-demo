@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -30,17 +29,6 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-url-loader",
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
-      },
-      {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
@@ -57,7 +45,6 @@ module.exports = {
   mode: "development",
   plugins: [
     new CleanWebpackPlugin(),
-    new FaviconsWebpackPlugin("./public/favicon.ico"),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
