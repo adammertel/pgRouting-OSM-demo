@@ -37,3 +37,5 @@ Run docker with postgreSQL + postGIS + pgRouting
 ## 6. Have fun
 
 - open `http://localhost:9000/` in your favorite browser and drag the markers around (note that the region loaded in the database is not large)
+
+https://user-images.githubusercontent.com/12932677/120118450-dea9fb80-c192-11eb-88ff-9156da57b481.mp4
